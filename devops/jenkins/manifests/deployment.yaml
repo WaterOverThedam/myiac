@@ -47,20 +47,20 @@ spec:
             initialDelaySeconds: 60
             timeoutSeconds: 5
             failureThreshold: 12
-          readinessProbe:
-            httpGet:
-              path: /login
-              port: 8080
-            initialDelaySeconds: 60
-            timeoutSeconds: 5
-            failureThreshold: 12
+          # readinessProbe:
+          #   httpGet:
+          #     path: /login
+          #     port: 8080
+          #   initialDelaySeconds: 60
+          #   timeoutSeconds: 5
+          #   failureThreshold: 12
           volumeMounts:
             - name: jenkins-home
               mountPath: /var/lib/jenkins
           env:
             - name: JENKINS_HOME
               value: /var/lib/jenkins
-            - name: JENKINS_OPTS 
+            - name: JENKINS_OPTS
               value: --httpPort=8080
             - name: JENKINS_SLAVE_AGENT_PORT
               value: "50000"
